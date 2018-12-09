@@ -80,7 +80,7 @@ func server_mode(port int, t string, l string, s string, passwordPath string, re
 	http.HandleFunc("/joined", joined)
 	http.HandleFunc("/unjoined", unjoined)
 	go program()
-	err := http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
+	err := http.ListenAndServe(fmt.Sprintf("0.0.0.0:%d", port), nil)
 	if err != nil {
 		fmt.Println("Can't starting server")
 		fmt.Println(err)
@@ -92,7 +92,6 @@ func program() {
 	fmt.Println("Server start, press any key to start bruteforce")
 	fmt.Scanln()
 	startAttack = true
-	return
 	fmt.Println("Attack start")
 	for _, password := range generatedPasswordList {
 		result := bruteforce(target, requestType, login, password, loginField, passwordField, stop)

@@ -57,7 +57,7 @@ func client_mode(address string) {
 		connects = data.Connection_count
 		target := data.Target
 		login := data.Login
-		loginField := data.Login
+		loginField := data.Login_field
 		passwordField := data.Password_field
 		stop := data.Stop
 		requestType = data.Request_type

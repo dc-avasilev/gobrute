@@ -18,7 +18,6 @@ func main() {
 	login := flag.String("login", "none", "")
 	stop := flag.String("stop", "none", "")
 	flag.Parse()
-
 	if *mode == "none" {
 		fmt.Println("Mode parameter not found")
 		return
@@ -28,7 +27,8 @@ func main() {
 			fmt.Println("Password path (-P) not found")
 			return
 		}
-		if strings.ToLower(*requestType) != "get" && strings.ToLower(*requestType) != "post" {
+		*requestType = strings.ToUpper(*requestType)
+		if *requestType != "GET" && *requestType != "POST" {
 			fmt.Println("Request type (-type) not found")
 			return
 		}
